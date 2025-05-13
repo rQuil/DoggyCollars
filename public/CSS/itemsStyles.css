@@ -1,0 +1,70 @@
+/*-----------------------------------------------------------------*/
+/* MAIN ITEMS STYLE */
+.items-page {
+    flex: 1; /*addition*/
+    text-align: center;
+    padding: 2rem;
+}
+
+.items-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));/* Adjusts columns based on screen size */
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.item-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);/* shadow for a floating effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;/* animation for hover effects */
+}
+
+.item-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.item-card h2 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.item-card p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.item-card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #ff6600;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* color transition on hover */
+}
+
+.item-card .btn:hover {
+    background-color: #e05500;/* dark orange color on hover */
+}
+
+.item-card:hover {
+    transform: scale(1.03);/* zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);/* stronger shadow on hover */
+}

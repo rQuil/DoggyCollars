@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title><%= item.title %> - DoggyCollars</title>
+  <link rel="stylesheet" href="/CSS/item.css">
+  <link rel="stylesheet" href="/CSS/headFoot.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <div class="main-content item-detail">
+      <div class="item-image">
+        <img src="<%= item.image %>" alt="<%= item.title %>">
+      </div>
+      <div class="item-info">
+        <h1><%= item.title %></h1>
+        <p><strong>Seller:</strong> <%= item.seller.firstName %> <%= item.seller.lastName %></p>
+        <p><strong>Condition:</strong> <%= item.condition %></p>
+        <p><strong>Price:</strong> $<%= item.price.toFixed(2) %></p>
+        <p><strong>Details:</strong> <%= item.details %></p>
+        <p><strong>Total Offers:</strong> <%= item.totalOffers %></p>
+
+        <% if (item.active) { %>
+          <% if (item.totalOffers > 0) { %>
+            <p><strong>Highest Offer:</strong> $<%= item.highestOffer.toFixed(2) %></p>
+          <% } %>
+          <form action="/items/<%= item._id %>/offers" method="POST">
+            <label for="amount">Your Offer:</label>
+            <input type="number" name="amount" id="amount" step="0.01" required>
+            <button type="submit" class="btn">Make Offer</button>
+          </form>
+        <% } else { %>
+          <p class="error-container">This item is no longer available.</p>
+        <% } %>
+      </div>
+    </div>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>

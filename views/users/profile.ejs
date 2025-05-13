@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>My Profile - DoggyCollars</title>
+  <link rel="stylesheet" href="/CSS/headFoot.css">
+  <link rel="stylesheet" href="/CSS/itemsStyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main>
+    <div class="main-content">
+      <h2>Welcome, <%= currentUser.firstName %> <%= currentUser.lastName %>!</h2>
+
+      <h3>Your Listed Items</h3>
+      <% if (!items.length) { %>
+        <p>You have not listed any items yet.</p>
+      <% } else { %>
+        <div class="item-list">
+          <% items.forEach(item => { %>
+            <div class="item-card">
+              <img src="<%= item.image %>" alt="<%= item.title %>">
+              <h2><a href="/items/<%= item._id %>"><%= item.title %></a></h2>
+              <div class="item-actions">
+                <a href="/items/<%= item._id %>/edit" class="btn edit-btn">Edit</a>
+                <form action="/items/<%= item._id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <button type="submit" class="btn delete-btn">Delete</button>
+                </form>
+                <form action="/items/<%= item._id %>/offers" method="GET" style="display:inline;">
+                  <button type="submit" class="btn">View Offers</button>
+                </form>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <h3>Your Offers</h3>
+      <% if (!offers.length) { %>
+        <p>You have not made any offers yet.</p>
+      <% } else { %>
+        <div class="item-list">
+          <% offers.forEach(o => { %>
+            <div class="item-card">
+              <h2><a href="/items/<%= o.item._id %>"><%= o.item.title %></a></h2>
+              <p>Amount: $<%= o.amount.toFixed(2) %></p>
+              <p>Status: <%= o.status %></p>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+</html>

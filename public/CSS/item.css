@@ -1,0 +1,70 @@
+/*-----------------------------------------------------------------*/
+/* ITEM STYLE [MAIN] */
+
+.item-detail {
+    flex: 1; 
+    display: grid; 
+    grid-template-columns: 1fr 2fr; 
+    gap: 2rem; 
+    align-items: center; 
+    padding: 2rem; 
+    height: 90vh;
+}
+
+.item-detail .item-image img {
+    width: 100%; 
+    max-width: 400px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* back shadow */
+}
+
+.item-detail .item-info {
+    text-align: left; 
+}
+
+.item-detail .item-info h1 {
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+    color: #333; 
+}
+
+.item-detail .item-info p {
+    margin: 0.5rem 0; 
+    font-size: 1rem; 
+    color: #555; 
+}
+
+/* edit and delete buttons */
+.item-detail .item-actions {
+    margin-top: 1.5rem; 
+}
+
+.item-detail .item-actions .btn {
+    display: inline-block; 
+    padding: 0.5rem 1.5rem; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; /* hover */
+}
+
+.item-detail .item-actions .edit-btn {
+    background-color: #007bff; 
+    color: #fff; 
+    margin-right: 1rem; 
+}
+
+.item-detail .item-actions .edit-btn:hover {
+    background-color: #0056b3; 
+}
+
+.item-detail .item-actions .delete-btn {
+    background-color: #dc3545; 
+    color: #fff; 
+}
+
+.item-detail .item-actions .delete-btn:hover {
+    background-color: #a71d2a; 
+}

@@ -1,0 +1,68 @@
+/* Main Content */
+.main-content {
+    flex: 1; 
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.form-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.form-container {
+    flex: 2;
+    padding-left: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-container input[type=text], select#item-condition, input[type="number"], textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn {
+    background-color: #ff9800;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #e68900;
+}
+
+input[type="file"] {
+    padding: 10px;
+}

@@ -1,0 +1,34 @@
+<header>
+  <div class="header-container">
+    <a href="/" class="logo">Doggy<span>Collars</span></a>
+    <form class="search-bar" action="/items" method="GET">
+      <input type="text" name="search" placeholder="Search..."
+             value="<%= typeof search !== 'undefined' ? search : '' %>">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/items">Browse</a></li>
+        <% if (currentUser) { %>
+          <li><a href="/items/new">Sell</a></li>
+          <li><a href="/users/profile">My Account</a></li>
+          <li><a href="/users/logout">Log Out</a></li>
+        <% } else { %>
+          <li><a href="/items/new">Sell</a></li>
+          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/users/login">Login</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+  <% if (success.length) { %>
+    <div class="flash flash-success">
+      <% success.forEach(msg=>{ %><p><%= msg %></p><% }) %>
+    </div>
+  <% } %>
+  <% if (error.length) { %>
+    <div class="flash flash-error">
+      <% error.forEach(msg=>{ %><p><%= msg %></p><% }) %>
+    </div>
+  <% } %>
+</header>

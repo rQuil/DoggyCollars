@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Offers for <%= item.title %> - DoggyCollars</title>
+  <link rel="stylesheet" href="/CSS/headFoot.css">
+  <link rel="stylesheet" href="/CSS/itemsStyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main>
+    <div class="main-content">
+      <h2>Offers for "<%= item.title %>"</h2>
+      <% if (!offers.length) { %>
+        <p>No offers received yet.</p>
+      <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Buyer</th>
+              <th>Amount</th>
+              <th><%= item.active ? 'Action' : 'Status' %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% offers.forEach(o => { %>
+              <tr>
+                <td><%= o.buyer.firstName %> <%= o.buyer.lastName %></td>
+                <td>$<%= o.amount.toFixed(2) %></td>
+                <td>
+                  <% if (item.active) { %>
+                    <form action="/items/<%= item._id %>/offers/<%= o._id %>/accept?_method=PUT" method="POST">
+                      <button type="submit" class="btn">Accept</button>
+                    </form>
+                  <% } else { %>
+                    <%= o.status %>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } %>
+    </div>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+</html>
